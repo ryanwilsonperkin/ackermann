@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # That's no moon. https://www.youtube.com/watch?v=EVekNsgUqn4
 
 def ackermann(m, n):

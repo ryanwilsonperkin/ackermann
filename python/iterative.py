@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # Great, kid. Don't get cocky. https://www.youtube.com/watch?v=nN9xsFUsPqM
 
 def ackermann(m, n):
