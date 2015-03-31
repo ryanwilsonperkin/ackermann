@@ -2,6 +2,9 @@ with Ada.Text_IO;  use Ada.Text_IO;
 with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 procedure recursive is
+    m : integer;
+    n : integer;
+    r : integer;
 
     function Ackermann (M, N : Natural) return Natural is
     begin
@@ -15,15 +18,12 @@ procedure recursive is
     end Ackermann;
 
 begin
-    for M in 0..3 loop
-       for N in 0..6 loop
-           Put(M);
-           Put(N);
-           Put(": ");
-           Put(Natural'Image (Ackermann (M, N)));
-           New_Line;
-       end loop;
-       New_Line;
-    end loop;
+    put("Enter m and n: ");
+    get(m);
+    get(n);
+    r := Ackermann(m, n);
+    put("Result: ");
+    put(r);
+    new_line;
 end recursive;
 
