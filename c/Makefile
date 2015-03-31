@@ -5,3 +5,5 @@ iterative: iterative.c
 
 recursive: recursive.c
 	gcc recursive.c -o recursive
+
+.PHONY: iterative recursive
