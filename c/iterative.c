@@ -50,8 +50,8 @@ int top(void)
 void push(int m)
 {
         if (isFULL()) {
-                fputs("Error: stack overflow\n", stderr);
-                abort();
+                fprintf(stderr, "Error: stack overflow\n");
+                exit(EXIT_FAILURE);
         }
         else {
                 st.top = st.top + 1;
@@ -62,8 +62,8 @@ void push(int m)
 void pop(int *m)
 {
         if (isEMPTY()) {
-                fputs("Error: stack underflow\n", stderr);
-                abort();
+                fprintf(stderr, "Error: stack underflow\n");
+                exit(EXIT_FAILURE);
         }
         else {
                 *m = st.items[st.top].m;
