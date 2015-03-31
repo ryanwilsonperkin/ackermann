@@ -2,27 +2,27 @@ with Ada.Text_IO;  use Ada.Text_IO;
 with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 procedure recursive is
-    m : integer;
-    n : integer;
-    r : integer;
+    m : natural;
+    n : natural;
+    r : natural;
 
-    function Ackermann (M, N : Natural) return Natural is
+    function ackermann (m, n : natural) return natural is
     begin
-        if M = 0 then
-               return N + 1;
-        elsif N = 0 then
-               return Ackermann (M - 1, 1);
+        if m = 0 then
+               return n + 1;
+        elsif n = 0 then
+               return ackermann (m - 1, 1);
         else
-               return Ackermann (M - 1, Ackermann (M, N - 1));
+               return ackermann (m - 1, ackermann (m, n - 1));
         end if;
-    end Ackermann;
+    end ackermann;
 
 begin
     put("Enter m and n: ");
     new_line;
     get(m);
     get(n);
-    r := Ackermann(m, n);
+    r := ackermann(m, n);
     put("Result: ");
     put(r);
     new_line;
