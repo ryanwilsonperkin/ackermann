@@ -1,2 +1,5 @@
 iterative
 recursive
+
+*.ali
+*.o
