@@ -19,6 +19,7 @@ procedure recursive is
 
 begin
     put("Enter m and n: ");
+    new_line;
     get(m);
     get(n);
     r := Ackermann(m, n);

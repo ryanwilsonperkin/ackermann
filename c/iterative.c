@@ -94,25 +94,9 @@ int ackermann(int m, int n)
 int main(void)
 {
         int r,m,n;
-        struct timeval t1, t2, tv;
-
-        createstack();
-        printf("Enter m and n: ");
+        printf("Enter m and n: \n");
         scanf("%d%d", &m, &n);
-
-        // Start timer
-        // Produces 1 microsecond resolution (1,000,000 microseconds = 1 sec)
-        gettimeofday(&t1,NULL);
-
-        r = ackermann(m,n);
-
-        // Stop timer
-        gettimeofday(&t2,NULL);
-
-        printf("Result = %d\n", r);
-
-        timersub(&t2,&t1,&tv);
-        printf("%ld milliseconds\n", (1000000*tv.tv_sec+tv.tv_usec)/1000);
-
+        r = ackermann(m, n);
+        printf("Result: %d\n", r);
         return 0;
 }
