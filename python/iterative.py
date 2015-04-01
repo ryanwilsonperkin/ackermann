@@ -4,7 +4,7 @@
 def ackermann(m, n):
     stack = []
     stack.append(m)
-    while len(stack):
+    while stack:
         m = stack.pop()
         if m == 0:
             n = n + 1
