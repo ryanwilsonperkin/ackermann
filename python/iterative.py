@@ -1,5 +1,11 @@
 #!/usr/bin/python
-# Great, kid. Don't get cocky. https://www.youtube.com/watch?v=nN9xsFUsPqM
+"""
+Iterative implementation of Ackermann's function
+by Ryan Wilson-Perkin
+for CIS3190W15: Legacy Programming
+
+"Great, kid. Don't get cocky." https://www.youtube.com/watch?v=nN9xsFUsPqM
+"""
 
 def ackermann(m, n):
     stack = []
