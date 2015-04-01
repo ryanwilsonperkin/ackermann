@@ -1,89 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-#include <sys/time.h>
 #define STACKSIZE 1000000
-/* Nonrecursive version of Ackermann's function, using just a stack.
- * */
-struct dataT
-{
-        int m;
-};
 
 struct stack
 {
         int top;
-        struct dataT items[STACKSIZE];
+        int items[STACKSIZE];
 } st;
 
-void createstack(void)
+void create_stack()
 {
         st.top = -1;
 }
 
-int isFULL()
+int is_full()
 {
-        if (st.top >= STACKSIZE-1)
-                return 1;
-        else
-                return 0;
+        return (st.top == STACKSIZE);
 }
 
-int isEMPTY()
+int is_empty()
 {
-        if (st.top == -1)
-                return 1;
-        else
-                return 0;
+        return (st.top == -1);
 }
 
-int stack_size(void)
+int top()
 {
-        return st.top;
-}
-
-int top(void)
-{
-        return st.items[st.top].m;
+        return st.items[st.top];
 }
 
 void push(int m)
 {
-        if (isFULL()) {
+        if (is_full()) {
                 fprintf(stderr, "Error: stack overflow\n");
                 exit(EXIT_FAILURE);
         }
         else {
-                st.top = st.top + 1;
-                st.items[st.top].m = m;
+                st.items[++st.top] = m;
         } 
 }
 
 void pop(int *m)
 {
-        if (isEMPTY()) {
+        if (is_empty()) {
                 fprintf(stderr, "Error: stack underflow\n");
                 exit(EXIT_FAILURE);
         }
         else {
-                *m = st.items[st.top].m;
-                st.top = st.top - 1;
+                *m = st.items[st.top--];
         }
 }
 
 int ackermann(int m, int n)
 {
         push(m);
-        while (!isEMPTY()) {
+        while (!is_empty()) {
                 pop(&m);
                 if (m == 0)
-                        n=n+1;
+                        n++;
                 else if (n == 0){
                         n = 1;
                         push(m-1);
                 }
                 else {
-                        n=n-1;
+                        n--;
                         push(m-1);
                         push(m);
                 }
@@ -94,6 +73,7 @@ int ackermann(int m, int n)
 int main(void)
 {
         int r,m,n;
+        create_stack();
         printf("Enter m and n: \n");
         scanf("%d%d", &m, &n);
         r = ackermann(m, n);
