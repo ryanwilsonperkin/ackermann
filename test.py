@@ -1,4 +1,11 @@
 #!/usr/bin/python
+"""
+Benchmarking utility for Ackermann project.
+Runs benchmarks on executables found in subdirectories.
+Benchmark output is listed as: (program name, m value, n value, elapsed time)
+
+Tests are run for m=3 and n from 0 to 12.
+"""
 import subprocess
 import timeit
 
