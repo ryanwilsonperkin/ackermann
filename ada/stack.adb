@@ -1,9 +1,6 @@
-with Ada.Text_IO; use Ada.Text_IO;
-with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
-with Ada.Float_Text_IO; use Ada.Float_Text_IO;
-with ada.numerics.elementary_functions; use ada.numerics.elementary_functions;
-with Ada.Text_IO; use Ada.Text_IO;
-
+-- Stack implementation as a module
+-- by Ryan Wilson-Perkin
+-- for CIS3190W15: Legacy Programming
 package body stack is
     type stackArray is 
         array (1..1000000) of integer;
@@ -16,6 +13,7 @@ package body stack is
 
     st : q_stack;
 
+    -- Push a new integer onto the stack.
     procedure push
         (x : in integer)
     is
@@ -27,6 +25,7 @@ package body stack is
         st.item(st.top) := x;
     end push;
 
+    -- Pop an integer from the stack.
     procedure pop
         (x : in out integer)
     is
@@ -38,6 +37,7 @@ package body stack is
         st.top := st.top - 1;
     end pop;
 
+    -- Return true if stack is empty. False otherwise.
     function stackEmpty return Boolean is
     begin
         if st.top = 0 then
@@ -47,6 +47,7 @@ package body stack is
         end if;
     end stackEmpty;
 
+    -- Return true if stack is full. False otherwise.
     function stackFull return Boolean is
     begin
         if st.top = 1000000 then
@@ -56,14 +57,9 @@ package body stack is
         end if;
     end stackFull;
 
+    -- Return value on top of stack.
     function stackTop return integer is
     begin
         return st.item(st.top);
     end stackTop;
-
-    procedure resetStack
-    is
-    begin
-        st.top := 0;
-    end resetStack;
 end stack;

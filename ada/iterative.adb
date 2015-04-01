@@ -1,3 +1,6 @@
+-- Iterative implementation of Ackermann's function
+-- by Ryan Wilson-Perkin
+-- for CIS3190W15: Legacy Programming
 with Ada.Text_IO;  use Ada.Text_IO;
 with ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with stack; use stack;
