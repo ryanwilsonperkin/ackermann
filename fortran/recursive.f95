@@ -1,3 +1,6 @@
+! Recursive implementation of Ackermann's function
+! by Ryan Wilson-Perkin
+! for CIS3190W15: Legacy Programming
 recursive function ackermann (m, n) result (r)
     integer, intent(in) :: m, n
     integer :: r

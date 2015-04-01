@@ -1,8 +1,12 @@
+! Implementation of a stack as a module 
+! by Ryan Wilson-Perkin
+! for CIS3190W15: Legacy Programming
 module stack
     integer, dimension(1000000) :: items = 0
     integer :: top = 0
 end module
 
+! Push an integer onto the stack
 subroutine push (m)
     use stack
     implicit none
@@ -15,6 +19,7 @@ subroutine push (m)
     items(top) = m
 end subroutine push
 
+! Pop an integer from the stack
 subroutine pop (m)
     use stack
     implicit none
@@ -28,6 +33,7 @@ subroutine pop (m)
     top = top - 1
 end subroutine pop;
 
+! Returns true if the stack is empty. False otherwise.
 function stackEmpty () result(r)
     use stack
     implicit none
@@ -35,6 +41,7 @@ function stackEmpty () result(r)
     r = (top == 0)
 end function stackEmpty
 
+! Returns true if the stack is full. False otherwise.
 function stackFull () result(r)
     use stack
     implicit none
@@ -42,16 +49,10 @@ function stackFull () result(r)
     r = (top == 1000000)
 end function stackFull
 
+! Returns top value from the stack.
 function stackTop () result(r)
     use stack
     implicit none
     integer :: r
     r = items(top)
 end function stackTop
-
-subroutine resetStack
-    use stack
-    implicit none
-    items = 0
-    top = 0
-end subroutine resetStack

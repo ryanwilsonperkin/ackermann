@@ -1,3 +1,6 @@
+! Iterative implementation of Ackermann's function
+! by Ryan Wilson-Perkin
+! for CIS3190W15: Legacy Programming
 function ackermann (m_initial, n_initial) result (n)
     use stack
     implicit none
