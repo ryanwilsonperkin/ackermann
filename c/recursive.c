@@ -1,3 +1,7 @@
+/* Recursive implementation of Ackermann's function
+ * by Ryan Wilson-Perkin
+ * for CIS3190W15: Legacy Programming
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
